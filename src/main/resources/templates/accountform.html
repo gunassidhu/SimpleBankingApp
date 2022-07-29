@@ -1,0 +1,949 @@
+
+<!doctype html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Create Account</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+
+    
+
+    
+
+<link href="css/bootstrap2.css" rel="stylesheet"/>
+
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+	  body {
+	  font-family: "Poppins", sans-serif;
+	  color: #0c0c0c;
+	  background-color: #ffffff;
+	}
+	.layout_padding {
+  padding: 75px 0;
+}
+
+.layout_padding2 {
+  padding: 45px 0;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 75px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 75px;
+}
+
+.custom_heading {
+  color: #030404;
+}
+
+.custom_heading span {
+  color: #21d7ff;
+}
+
+/*header section*/
+.hero_area {
+  height: 98vh;
+  position: relative;
+}
+
+.hero_area::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  background-color: #023b48;
+}
+
+.sub_page .hero_area {
+  height: auto;
+}
+
+.hero_area.sub_pages {
+  height: auto;
+}
+
+.header_section {
+  background-color: #f6f8f7;
+  padding-top: 15px;
+}
+
+.header_section .container-fluid {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.header_section .nav_container {
+  margin: 0 auto;
+}
+
+.header_section .quote_btn-container a {
+  color: #434242;
+  text-transform: uppercase;
+}
+
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 10px 30px;
+  color: #434242;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: initial;
+}
+
+.btn,
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+  color: #fafcfd;
+}
+
+.custom_nav-container .nav_search-btn {
+  background-image: url(../images/search-icon.png);
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-position-y: 7px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: none;
+}
+
+.navbar-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.navbar-brand img {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.navbar-brand span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #191919;
+  margin-top: 5px;
+}
+
+.custom_nav-container {
+  z-index: 99999;
+  padding: 5px 0;
+}
+
+.custom_nav-container .navbar-toggler {
+  outline: none;
+}
+
+.custom_nav-container .navbar-toggler .navbar-toggler-icon {
+  background-image: url(../images/menu.png);
+  background-size: 55px;
+}
+
+/*end header section*/
+/* slider section */
+.slider_section {
+  background-image: url(../images/hero.jpg);
+  padding: 6% 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slider_detail-box h1 {
+  color: #ffffff;
+  font-size: 52px;
+}
+
+.slider_detail-box h1 span {
+  display: inline-block;
+  color: #434242;
+  font-weight: bold;
+}
+
+.slider_detail-box p {
+  color: #f6f8f7;
+  margin-top: 45px;
+  margin-bottom: 40px;
+}
+
+.slider_detail-box .btn-box .btn-1 {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #023b48;
+  border: 1px solid #023b48;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.slider_detail-box .btn-box .btn-1:hover {
+  background-color: transparent;
+  color: #023b48;
+}
+
+.slider_detail-box .btn-box .btn-2 {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color: #023b48;
+}
+
+.slider_detail-box .btn-box .btn-2:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.slider_img-box {
+  margin-right: 5%;
+}
+
+.slider_img-box img {
+  width: 100%;
+}
+
+.carousel-indicators {
+  bottom: -15%;
+}
+
+.carousel-indicators li {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  opacity: 1;
+}
+
+.carousel-indicators .active {
+  background-color: #010106;
+}
+
+.about_section {
+  background-image: url(../images/about-bg.png);
+  background-size: cover;
+}
+
+.about_section .row {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.about_section .img-box img {
+  width: 100%;
+}
+
+.about_section .detail-box p {
+  margin: 25px 0;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #023b48;
+  border: 1px solid #023b48;
+  color: #ffffff;
+}
+
+.about_section .detail-box a:hover {
+  background-color: transparent;
+  color: #023b48;
+}
+
+.service_section .row .col-md-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.service_section .img_box {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  background-color: #18d3ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.service_section .img_box img {
+  width: 45px;
+}
+
+.service_section .detail_box {
+  margin-top: 25px;
+}
+
+.service_section .detail_box h6 {
+  font-weight: bold;
+}
+
+.service_section a {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #023b48;
+  border: 1px solid #023b48;
+  color: #ffffff;
+}
+
+.service_section a:hover {
+  background-color: transparent;
+  color: #023b48;
+}
+
+.gallery-section {
+  background-color: #0dc3ff;
+}
+
+.gallery-section .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.gallery-section .container h2 {
+  color: #ffffff;
+}
+
+.gallery-section .img_box {
+  margin: 15px 0;
+}
+
+.gallery-section .img_box img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-section .img_box.box-1 {
+  width: 28%;
+}
+
+.gallery-section .img_box.box-2 {
+  width: 70%;
+}
+
+.gallery-section .img_box.box-3 {
+  width: 32%;
+}
+
+.gallery-section .img_box.box-4 {
+  width: 32%;
+}
+
+.gallery-section .img_box.box-5 {
+  width: 32%;
+}
+
+.buy_section {
+  text-align: center;
+}
+
+.buy_section p {
+  margin: 25px 0;
+}
+
+.buy_section a {
+  display: inline-block;
+  padding: 12px 65px;
+  background-color: #023b48;
+  border: 1px solid #023b48;
+  color: #ffffff;
+}
+
+.buy_section a:hover {
+  background-color: transparent;
+  color: #023b48;
+}
+
+.client_section .pl-100 {
+  padding-left: 100px;
+}
+
+.client_section .client_container {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #606060;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 0;
+}
+
+.client_section .client_container .img_box {
+  width: 200px;
+  margin-left: -100px;
+}
+
+.client_section .client_container .img_box img {
+  min-width: 100%;
+}
+
+.client_section .client_container .detail_box {
+  padding: 0 35px;
+}
+
+.client_section .carousel-indicators li {
+  background-color: #0dc3ff;
+}
+
+.client_section .carousel-indicators .active {
+  background-color: #8c8a8a;
+}
+
+.map_section {
+  position: relative;
+}
+
+.map_section #map {
+  position: absolute;
+}
+
+.map_section .form_container {
+  position: relative;
+  width: 50%;
+  z-index: 9;
+}
+
+.map_section .form_container form {
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 45px;
+  margin: 75px 0;
+}
+
+.map_section .form_container input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid #111111;
+  padding-top: 35px;
+  width: 100%;
+}
+
+.map_section .form_container input.message-box {
+  padding-top: 55px;
+}
+
+.map_section .form_container button {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #023b48;
+  border: 1px solid #023b48;
+  color: #ffffff;
+  border-radius: 30px;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.map_section .form_container button:hover {
+  background-color: transparent;
+  color: #023b48;
+}
+
+	.info_items .item {
+	  width: 200px;
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-box-orient: vertical;
+	  -webkit-box-direction: normal;
+	      -ms-flex-direction: column;
+	          flex-direction: column;
+	  -webkit-box-align: center;
+	      -ms-flex-align: center;
+	          align-items: center;
+	  text-align: center;
+	}
+	.info_section {
+	  background-color: #0dc3ff;
+	}
+
+	.info_items {
+	  width: 70%;
+	  margin: 0 auto;
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-box-pack: justify;
+	      -ms-flex-pack: justify;
+	          justify-content: space-between;
+		}
+	
+	.info_items .item .img-box {
+	  width: 80px;
+	  height: 80px;
+	  border-radius: 100%;
+	  background-repeat: no-repeat;
+	  background-position: center;
+	}
+	
+	.info_items .item .detail-box {
+	  margin-top: 5px;
+	  color: #fff;
+	}
+	
+	.info_items {
+	  position: relative;
+	}
+	
+	.info_items a {
+	  position: relative;
+	}
+	
+	.info_items .item .img-box.box-1 {
+	  background-image: url(../images/location-white.png);
+	}
+	
+	.info_items .item .img-box.box-2 {
+	  background-image: url(../images/telephone-white.png);
+	}
+	
+	.info_items .item .img-box.box-3 {
+	  background-image: url(../images/envelope-white.png);
+	}
+	
+	/* footer section*/
+	.footer_section {
+	  background-color: #fbfdfd;
+	  padding: 20px;
+	  font-weight: 500;
+	}
+	
+	.footer_section p {
+	  color: #292929;
+	  margin: 0;
+	  text-align: center;
+	}
+	
+	.footer_section a {
+	  color: #292929;
+	}
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      
+      <h2>Account Form</h2>
+      <p class="lead">Fill the form and click "Submit Form"</p>
+    </div>
+    <!--
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Second product</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+      </div>-->
+      <div class="col-md-7 col-lg-8">
+        <!--<h4 class="mb-3">Billing address</h4>-->
+        <form class="needs-validation" th:action="@{/accountform}" th:object=${banking} method ="POST">
+          <div class="row g-3">
+          
+          
+            <div class="col-sm-6">
+              <label for="firstName"  class="form-label">Firstname</label>
+              <input type="text" th:field="*{firstname}" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName"  class="form-label">Lastname</label>
+              <input type="text" th:field="*{lastname}" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+
+
+            <div class="col-12">
+              <label for="email"  class="form-label">Email</label>
+              <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
+            </div>
+			
+			<div class="col-12">
+              <label for="mobile"  class="form-label">Mobile Number</label>
+              <input type="text" th:field="*{mobile}" class="form-control" id="mobile" placeholder="" minlength="10" maxlength="10">
+              <div class="invalid-feedback">
+                Please enter a valid mobile number.
+              </div>
+            </div>
+			
+			<!--<div class="col-md-5">
+              <label for="gender" class="form-label">Gender</label>
+              <input th:field="*(gender)">
+              <select class="form-select" id="gender" required>
+                <option value="">Choose</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+              </select>
+			</div>
+			  
+			<div class="col-md-5">
+              <label for="accounttype" class="form-label">Account Type</label>
+              <input th:field="*(accounttype)">
+              <select class="form-select" id="acctype" required>
+                <option value="">Choose</option>
+                <option>Savings</option>
+                <option>Salary</option>
+                <option>Current</option>
+                <option>Fixed</option>
+              </select>
+			</div>-->
+			
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="" required>
+            </div>
+
+            <!--<div class="col-md-5">
+              <label for="country" class="form-label">Country</label>
+              <input th:field="*(country)">
+              <select class="form-select" id="country" required>
+                <option value="">Choose</option>
+                <option>India</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="state" class="form-label">State</label>
+              <input th:field="*(state)">
+              <select class="form-select" id="state" required>
+                <option value="">Choose</option>
+				<option value="Andhra Pradesh">Andhra Pradesh</option>
+				<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+				<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+				<option value="Bihar">Bihar</option>
+				<option value="Chandigarh">Chandigarh</option>
+				<option value="Chhattisgarh">Chhattisgarh</option>
+				<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+				<option value="Daman and Diu">Daman and Diu</option>
+				<option value="Delhi">Delhi</option>
+				<option value="Lakshadweep">Lakshadweep</option>
+				<option value="Puducherry">Puducherry</option>
+				<option value="Goa">Goa</option>
+				<option value="Gujarat">Gujarat</option>
+				<option value="Haryana">Haryana</option>
+				<option value="Himachal Pradesh">Himachal Pradesh</option>
+				<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+				<option value="Jharkhand">Jharkhand</option>
+				<option value="Karnataka">Karnataka</option>
+				<option value="Kerala">Kerala</option>
+				<option value="Madhya Pradesh">Madhya Pradesh</option>
+				<option value="Maharashtra">Maharashtra</option>
+				<option value="Manipur">Manipur</option>
+				<option value="Meghalaya">Meghalaya</option>
+				<option value="Mizoram">Mizoram</option>
+				<option value="Nagaland">Nagaland</option>
+				<option value="Odisha">Odisha</option>
+				<option value="Punjab">Punjab</option>
+				<option value="Rajasthan">Rajasthan</option>
+				<option value="Sikkim">Sikkim</option>
+				<option value="Tamil Nadu">Tamil Nadu</option>
+				<option value="Telangana">Telangana</option>
+				<option value="Tripura">Tripura</option>
+				<option value="Uttar Pradesh">Uttar Pradesh</option>
+				<option value="Uttarakhand">Uttarakhand</option>
+				<option value="West Bengal">West Bengal</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+			
+			<div class="col-md-3">
+              <label for="zip" class="form-label">City</label>
+              <input type="text" th:field="*(country)" class="form-control" id="city" placeholder="" required>
+              <div class="invalid-feedback">
+                City is required.
+              </div>
+            </div>
+          
+
+            <div class="col-md-3">
+              <label for="pincode" class="form-label">Pincode</label>
+              <input type="number" th:field="*(pincode)" class="form-control" id="pincode" placeholder="" required>
+              <div class="invalid-feedback">
+                Pincode required.
+              </div>
+            </div>
+          </div>-->
+
+          
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">PIN Generation</h4>
+
+
+            <div class="col-md-3">
+              <label for="enter pin" class="form-label">Enter a 4-digit PIN</label>
+              <input type="text" th:field="*{pin}" class="form-control" id="epin" placeholder="" required minlength="4" maxlength="4">
+              <div class="invalid-feedback">
+                PIN is required
+              </div>
+            </div>
+			
+
+          <hr class="my-4">
+          <!--<button >
+  		  Submit Form
+		  </button>-->
+		  <input class="w-30 btn btn-primary btn-lg" type="submit" value="Submit Form"/>
+		  <div class="space">
+          </div>
+		  <input class="w-30 btn btn-secondary btn-lg" type="reset" value="Reset Form"/>
+        </form>
+      </div>
+    </div>
+  
+  
+  <!-- info section -->
+  <!--<section class="info_section layout_padding2">
+    <div class="container">
+      <div class="info_items">
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-1">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                Pune,Maharashtra
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-2">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                +91 6370494452
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-3">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                brobank@gmail.com
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+  
+  </main>
+ </body>
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2019 All Rights Reserved By
+      <a href="https://html.design/">Free Html Templates</a>
+    </p>
+  </section>
+  <!-- footer section -->
+ 
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
+</html>
